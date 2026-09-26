@@ -1,0 +1,17 @@
+node_modules/
+out/
+dist/
+.DS_Store
+Thumbs.db
+*.log
+.env
+.env.*
+
+# Local-only media. Do not commit audio/video you don't hold a redistribution
+# license for — see README "Audio".
+public/audio/*
+!public/audio/.gitkeep
+
+# NOTE: src/fonts.generated.ts is intentionally tracked. Regenerating it needs
+# the @fontsource packages installed, which render-only environments may not
+# have. See README "Fonts".
