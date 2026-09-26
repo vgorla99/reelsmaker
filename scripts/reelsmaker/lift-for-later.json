@@ -1,0 +1,33 @@
+{
+  "brand": "demo",
+  "morphPath": "journey",
+
+  "kicker": "HEALTH 101",
+  "hook": "AFTER 40, MUSCLE\nIS YOUR PENSION.",
+  "hookTypeVariant": "buildup",
+
+  "problemLine": "After 30 you lose muscle every decade you don't train it — and that's what makes stairs, shopping bags and getting up off the floor feel harder.",
+
+  "pointATitle": "STRENGTH BEATS STEPS",
+  "pointABody": "Walking keeps your heart healthy. Only lifting tells your body to keep its muscle.",
+  "pointAVariant": "seesaw",
+  "pointALeftLabel": "LIFTING",
+  "pointARightLabel": "EXTRA STEPS",
+
+  "pointBTitle": "THE CHAIR-STAND TEST",
+  "pointBBody": "Stand up from a chair as many times as you can in 30 seconds. Re-test every 12 weeks.",
+  "pointBVariant": "bar",
+  "pointBBeforeLabel": "WEEK 0",
+  "pointBBeforeValue": 11,
+  "pointBAfterLabel": "WEEK 12",
+  "pointBAfterValue": 15,
+  "pointBUnit": " REPS",
+
+  "statLabel": "LOWER RISK OF EARLY DEATH WITH 30–60 MIN A WEEK OF STRENGTH TRAINING",
+  "statFrom": 0,
+  "statTo": 17,
+  "statSuffix": "%",
+
+  "ctaText": "LIFT FOR LATER.",
+  "ctaSub": "Strength coaching for 35+, in person & online."
+}

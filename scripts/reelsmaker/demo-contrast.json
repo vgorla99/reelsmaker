@@ -1,0 +1,30 @@
+{
+  "brand": "demo",
+
+  "kicker": "CONTENT TIP",
+  "hook": "CONSISTENCY\nBEATS POLISH.",
+  "hookTypeVariant": "buildup",
+
+  "problemLine": "One perfect reel a month loses to four good ones a week.",
+  "problemTypeVariant": "buildup",
+
+  "pointATitle": "SYSTEM VS. HEROICS",
+  "pointABody": "A repeatable format outweighs a one-off masterpiece.",
+  "pointAVariant": "seesaw",
+  "pointALeftLabel": "SYSTEM",
+  "pointARightLabel": "ONE-OFFS",
+
+  "pointBTitle": "SAME FORMAT, NEW WORDS",
+  "pointBBody": "Most of a reel is structure. Only the words change between posts.",
+  "pointBVariant": "orbit",
+  "pointBStatLabel": "OF EACH REEL IS REUSED STRUCTURE",
+  "pointBStatTo": 80,
+
+  "statLabel": "MORE REELS SHIPPED PER MONTH (ILLUSTRATIVE)",
+  "statFrom": 0,
+  "statTo": 4,
+  "statSuffix": "×",
+
+  "ctaText": "SHIP THE SYSTEM.",
+  "ctaSub": "Brand once. Script forever."
+}

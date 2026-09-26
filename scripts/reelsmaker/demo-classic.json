@@ -1,0 +1,30 @@
+{
+  "brand": "demo",
+
+  "kicker": "REELSMAKER 101",
+  "hook": "ONE SCRIPT.\nONE COMMAND.",
+
+  "problemLine": "Editing every reel by hand means re-timing cuts, redrawing charts and re-checking brand colors — every single time.",
+
+  "pointATitle": "BEATS ON RAILS",
+  "pointABody": "Six beats, fixed timing. You write the words — the engine makes the cuts.",
+  "pointAStatLabel": "OF CUT TIMING HANDLED BY THE ENGINE",
+  "pointAStatFrom": 0,
+  "pointAStatTo": 100,
+
+  "pointBTitle": "MINUTES PER REEL",
+  "pointBBody": "Hand-editing in a timeline vs. writing one JSON script and running one command.",
+  "pointBBeforeLabel": "BY HAND",
+  "pointBBeforeValue": 90,
+  "pointBAfterLabel": "SCRIPTED",
+  "pointBAfterValue": 5,
+  "pointBUnit": " MIN",
+
+  "statLabel": "FASTER FROM IDEA TO FINISHED MP4 (ILLUSTRATIVE)",
+  "statFrom": 0,
+  "statTo": 18,
+  "statSuffix": "×",
+
+  "ctaText": "WRITE. RENDER. POST.",
+  "ctaSub": "Swap the brand. Swap the words. Ship."
+}
