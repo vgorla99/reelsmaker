@@ -1,0 +1,15 @@
+{
+  "name": "REELSMAKER DEMO",
+  "handle": "@yourhandle",
+  "shortMark": { "prefix": "REELS", "suffix": "MAKER" },
+  "colors": {
+    "bg": "#fbfaf7",
+    "ink": "#15171a",
+    "body": "#4b5058",
+    "faint": "#9aa0a8",
+    "line": "#e6e3dc",
+    "card": "#f3f1ec",
+    "accents": ["#ff5a36", "#12a39a", "#3c3fd9"]
+  },
+  "fonts": { "headline": "League Gothic", "body": "Inter" }
+}
