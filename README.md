@@ -19,7 +19,10 @@ src/brand.ts        your name, handle, mark, 5 colors, optional music — the ON
 src/kit/            the motion language — shared by every reel
 src/reels/<slug>/   one video: its timeline, its protagonist, its scenes
 src/reels/_starter/ a tiny working reel that `npm run new` copies
+prompts/            copy-paste AI prompts: channel audit → 15-reel monthly plan → VO → render → schedule
 ```
+
+> **Want a whole month of reels?** [`prompts/`](prompts/) has copy-paste prompts for Claude that run the full loop for any brand: channel analysis, a monthly strategy with 15 scripted reels, ElevenLabs voiceover scripts, captions and hashtags, production with this kit, and automated scheduling via Publora. Approval gates sit at every step.
 
 ---
 
