@@ -1,41 +1,32 @@
-// Composition registry. You should not need to edit this file to make a new
-// reel — write a script JSON and run `npm run reelsmaker -- --script=...`,
-// which renders the "ReelsMaker" composition with { reel: <your script> } as --props.
-
 import React from "react";
 import { Composition } from "remotion";
-import demoClassic from "../scripts/reelsmaker/demo-classic.json";
-import demoContrast from "../scripts/reelsmaker/demo-contrast.json";
-import liftForLater from "../scripts/reelsmaker/lift-for-later.json";
-import { REEL_DURATION, REEL_FPS, REEL_HEIGHT, REEL_WIDTH } from "./beats";
-import { resolveScript } from "./brands";
-import { ContactSheet, SHEET_HEIGHT, SHEET_WIDTH } from "./ContactSheet";
-import { Reel, ReelEntry } from "./Reel";
+import { ReviewSheet, reviewSize } from "./kit/Review";
+import { FPS, H, W } from "./kit/theme";
+import { REELS } from "./reels";
 
-const liftForLaterProps = resolveScript(liftForLater, "lift-for-later.json");
-const demoClassicProps = resolveScript(demoClassic, "demo-classic.json");
-const demoContrastProps = resolveScript(demoContrast, "demo-contrast.json");
+// Review sheets are bound per reel at module level (props must stay
+// JSON-serializable, so the reel component can't be passed as a prop).
+const ENTRIES = REELS.map((r) => {
+  const Review: React.FC = () => <ReviewSheet Reel={r.component} frames={r.reviewFrames} fps={FPS} />;
+  return { ...r, Review, reviewSize: reviewSize(r.reviewFrames.length) };
+});
 
-// Instagram Reels/Stories spec, applied to every reel composition.
-const REEL_SPEC = { durationInFrames: REEL_DURATION, fps: REEL_FPS, width: REEL_WIDTH, height: REEL_HEIGHT } as const;
-
+// Every reel: the 1080x1920 / 30fps composition itself, plus "<Id>-Review",
+// a single still tiling its review frames.
 export const RemotionRoot: React.FC = () => (
   <>
-    {/* The ReelsMaker target — the CLI renders this with --props=<your script>. */}
-    <Composition id="ReelsMaker" component={ReelEntry} {...REEL_SPEC} defaultProps={{ reel: liftForLaterProps }} />
-    <Composition
-      id="ReelsMakerContactSheet"
-      component={ContactSheet}
-      durationInFrames={REEL_DURATION}
-      fps={REEL_FPS}
-      width={SHEET_WIDTH}
-      height={SHEET_HEIGHT}
-      defaultProps={{ reel: liftForLaterProps }}
-    />
-
-    {/* Bundled examples, for browsing in Studio. */}
-    <Composition id="LiftForLater" component={Reel} {...REEL_SPEC} defaultProps={liftForLaterProps} />
-    <Composition id="DemoClassic" component={Reel} {...REEL_SPEC} defaultProps={demoClassicProps} />
-    <Composition id="DemoContrast" component={Reel} {...REEL_SPEC} defaultProps={demoContrastProps} />
+    {ENTRIES.map((r) => (
+      <React.Fragment key={r.id}>
+        <Composition id={r.id} component={r.component} durationInFrames={r.durationInFrames} fps={FPS} width={W} height={H} />
+        <Composition
+          id={`${r.id}-Review`}
+          component={r.Review}
+          durationInFrames={r.durationInFrames}
+          fps={FPS}
+          width={r.reviewSize.width}
+          height={r.reviewSize.height}
+        />
+      </React.Fragment>
+    ))}
   </>
 );

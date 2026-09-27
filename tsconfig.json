@@ -5,13 +5,9 @@
     "moduleResolution": "bundler",
     "jsx": "react-jsx",
     "strict": true,
-    "resolveJsonModule": true,
-    "allowImportingTsExtensions": true,
-    "erasableSyntaxOnly": true,
-    "verbatimModuleSyntax": true,
     "noEmit": true,
     "skipLibCheck": true,
-    "types": ["node"]
+    "verbatimModuleSyntax": true
   },
-  "include": ["src", "scripts/**/*.ts"]
+  "include": ["src"]
 }
