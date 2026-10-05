@@ -1,0 +1,71 @@
+{
+  "month": "2026-01",
+  "title": "Example month",
+  "status": "example: neutral demo copy, no real brand",
+  "defaults": {
+    "videoTime": "18:00",
+    "carouselTime": "12:00",
+    "cta": { "button": "LINK IN BIO", "sub": "YOUR PRODUCT", "note": "A short legal or disclaimer line." },
+    "voice": "ElevenLabs: calm, warm, speed 0.85",
+    "voBreak": "<break time=\"1.0s\" />",
+    "baseTags": ["#yourbrand", "#demo"],
+    "igTags": ["#yourbrand"]
+  },
+  "rules": ["Only real numbers in blocks and VO.", "Add your own brand and compliance rules here; they print in the review document."],
+  "weeks": [{ "n": 1, "label": "Week 1", "from": "2026-01-01", "to": "2026-01-07", "approveBy": "2025-12-31" }],
+  "videos": [
+    {
+      "id": "V01",
+      "slug": "motion-demo",
+      "date": "2026-01-02",
+      "line": "motion",
+      "pillar": "education",
+      "posting": "manual",
+      "title": "Motion library demo",
+      "why": "Shows the tabs, ruler and flow blocks on brand stages. Demo copy only.",
+      "hook": ["THREE BLOCKS", "ONE REEL"],
+      "hookAlt": ["MOTION", "BLOCKS"],
+      "beats": [
+        { "vo": "Three blocks. One reel.", "note": "A quick tour." },
+        {
+          "title": ["TABS", "SLIDE."],
+          "vo": "Tabs switch and the panels slide.",
+          "block": {
+            "type": "tabs",
+            "tabs": [
+              { "title": "Plan", "text": "Write plan.json" },
+              { "title": "Render", "text": "Run produce" }
+            ]
+          }
+        },
+        {
+          "title": ["A RULER", "HIGHLIGHTS."],
+          "vo": "A ruler marks a range from eight to twelve.",
+          "block": { "type": "ruler", "min": 0, "max": 20, "mark": [8, 12], "label": "Example range", "unit": "units" }
+        },
+        {
+          "title": ["PATHS", "MERGE."],
+          "vo": "Paths flow into one node.",
+          "block": { "type": "flow", "from": ["Script", "Clips", "Voice"], "to": "Reel" }
+        }
+      ],
+      "ctaVo": "Replace this with your call to action.",
+      "caption": "Demo caption for the example video.",
+      "hashtags": ["#demo", "#motion"],
+      "firstComment": "Demo first comment.",
+      "igCaption": "Demo Instagram caption.",
+      "replies": ["Demo reply one.", "Demo reply two."]
+    }
+  ],
+  "carousels": [
+    {
+      "id": "C01",
+      "slug": "carousel-demo",
+      "date": "2026-01-02",
+      "title": "Carousel demo",
+      "slides": ["THREE SLIDES | A carousel from the plan", "Slide two | Head and sub, split by a pipe", "Slide three | Link in bio"],
+      "caption": "Demo carousel caption.",
+      "hashtags": ["#demo", "#carousel"]
+    }
+  ]
+}

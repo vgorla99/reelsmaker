@@ -15,7 +15,14 @@
     "demo": "node scripts/reel.mjs LiftForLater",
     "typecheck": "tsc --noEmit",
     "fonts": "node scripts/generate-fonts.mjs",
-    "postinstall": "node scripts/generate-fonts.mjs"
+    "postinstall": "node scripts/generate-fonts.mjs",
+    "library": "node scripts/library.mjs",
+    "pexels": "node scripts/pexels.mjs",
+    "vo": "node scripts/vo.mjs",
+    "doc": "node scripts/content-doc.mjs",
+    "produce": "node scripts/produce.mjs",
+    "publora": "node scripts/publora.mjs",
+    "check:captions": "node scripts/check-captions.mjs"
   },
   "dependencies": {
     "@fontsource/jetbrains-mono": "5.3.0",

@@ -101,6 +101,63 @@ Everything animates from the frame number only (no `Math.random()`, no timers), 
    Then watch the MP4 at full speed.
 6. **Promote tools, not choreography.** If you invent a new transition or text effect worth reusing, move it into `src/kit/`.
 
+## Footage engine & monthly plans
+
+A second way to make reels: describe a month in JSON and the engine builds every video (clips or brand stages + overlays, captions, blocks), carousels, review sheets and post packs. `content/example/` is a neutral month that renders on a fresh clone; real months are registered in `src/plan/index.ts`.
+
+### plan.json
+
+```jsonc
+{
+  "month": "2026-01",
+  "defaults": { "cta": { "button": "LINK IN BIO", "sub": "…", "note": "…" }, "videoTime": "18:00", "voBreak": "<break time=\"1.0s\" />", "baseTags": [], "igTags": [] },
+  "videos": [{
+    "id": "V01", "slug": "demo",
+    "line": "footage",            // "footage" = library clips · "motion" = brand stages + blocks
+    "hook": ["LINE ONE", "LINE TWO"],
+    "beats": [{ "title": ["TWO", "LINES"], "vo": "…", "shot": { "asset": "<library id>" } /* or "block": {…} */, "caption": "" }],
+    "ctaVo": "…",
+    "ctaShot": { "asset": "<library id>" }   // footage videos only
+  }],
+  "carousels": [{ "id": "C01", "slug": "demo", "slides": ["Head | sub", "Head | sub"] }]   // 2–10 slides
+}
+```
+
+### Blocks (middle band, y 1010–1350)
+
+| Block | Example |
+|---|---|
+| `stat` | `{ "type": "stat", "value": "90", "label": "per jar" }` |
+| `list` | `{ "type": "list", "items": ["One", "Two"] }` |
+| `compare` | `{ "type": "compare", "left": { "title": "A", "items": ["…"] }, "right": { "title": "B", "items": ["…"] } }` |
+| `verdict` | `{ "type": "verdict", "verdict": "FAKT" }` |
+| `jar` | `{ "type": "jar", "label": "PRODUCT", "sub": "DESCRIPTOR" }` (mark from `BRAND.mark`) |
+| `bars` | `{ "type": "bars", "items": [{ "label": "A", "value": 40, "unit": "mg" }] }` |
+| `focus` | `{ "type": "focus", "rows": [{ "label": "A", "value": "10 mg" }] }` |
+| `flow` | `{ "type": "flow", "from": ["A", "B"], "to": "C" }` |
+| `tabs` | `{ "type": "tabs", "tabs": [{ "title": "A", "text": "…" }] }` |
+| `ruler` | `{ "type": "ruler", "min": 0, "max": 20, "mark": [8, 12], "label": "Range", "unit": "units" }` |
+
+**Only real numbers**: values come from a label or from numbers the VO says. Never invent stats. Specs are validated at load time, so a bad block fails before rendering.
+
+### Captions
+
+Automatic from the VO: each line is cut into 1–3 word chunks, the spoken word pops in the accent colour. The headline counts as a caption, so sentences it already says are skipped. A beat's `caption` overrides the auto text (`""` = none). Beat notes are hidden when captions are on. The number-word table is German; other languages need their own (see `Captions.tsx`).
+
+### Audio
+
+Put `vo.mp3` (ElevenLabs, keep the `<break>` tags) and optionally `music.mp3` in the video's `out/<month>/<ID>-<slug>/` folder, then `npm run produce -- <month> --final <ID>`. The music bed sits about 14 dB under the VO (`MUSIC_UNDER_VO = 0.18`). Only use music you hold a license for.
+
+### Workflow
+
+1. `npm run pexels -- search "…"` then `get <id>`: stock clips into the asset library (author and license recorded in `assets/manifest.json`; `npm run library` for your own).
+2. `npm run produce -- <month> --week N`: drafts (video, cover, review sheet, VO script, post text, slides).
+3. Review the sheets, record the VO, add music.
+4. `npm run produce -- <month> --final <ID>`: cut and render `final.mp4`.
+5. `npm run doc -- <month>` for an HTML review document; `npm run publora` to schedule.
+
+Copy `.env.example` to `.env` for `PEXELS_API_KEY`, `ELEVENLABS_API_KEY`, `PUBLORA_API_KEY`. Media (`public/footage`, `public/library`, `out/`) stays local. `npm run check:captions` self-checks the caption rules.
+
 ## Instagram spec (hard requirement)
 
 | Property   | Value                | Enforced by                                                        |

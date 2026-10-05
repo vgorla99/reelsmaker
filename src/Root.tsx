@@ -2,6 +2,8 @@ import React from "react";
 import { Composition } from "remotion";
 import { ReviewSheet, reviewSize } from "./kit/Review";
 import { FPS, H, W } from "./kit/theme";
+import { CAROUSELS } from "./plan";
+import { CH, CW } from "./plan/Carousel";
 import { REELS } from "./reels";
 
 // Review sheets are bound per reel at module level (props must stay
@@ -27,6 +29,9 @@ export const RemotionRoot: React.FC = () => (
           height={r.reviewSize.height}
         />
       </React.Fragment>
+    ))}
+    {CAROUSELS.map((c) => (
+      <Composition key={c.id} id={c.id} component={c.component} durationInFrames={c.slides} fps={FPS} width={CW} height={CH} />
     ))}
   </>
 );
