@@ -107,7 +107,7 @@ function add(files, opt) {
       ...meta,
       ai: source === "own-ai",
       license: "own",
-      origin: file,
+      origin: basename(file), // file name only: the manifest is committed, never record local absolute paths
       tags: opt.tags ? opt.tags.split(",").map((t) => t.trim()) : [],
       issues: opt.issues ?? "",
       sha1: hash,
