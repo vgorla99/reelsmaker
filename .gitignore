@@ -6,11 +6,16 @@ Thumbs.db
 *.log
 .env
 .env.*
+!.env.example
 
 # Local-only media. Do not commit audio/video you don't hold a redistribution
 # license for — see README "Audio".
 public/audio/*
 !public/audio/.gitkeep
+
+# Footage engine: local media only (records live in assets/manifest.json).
+public/footage/
+public/library/
 
 # NOTE: src/kit/fonts.generated.ts is intentionally tracked. Regenerating it needs
 # the @fontsource packages installed, which render-only environments may not
